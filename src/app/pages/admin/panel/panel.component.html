@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="tertiary">
+        <!-- search -->
+        <ion-searchbar></ion-searchbar>
+
+        <!-- icon menu -->
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon slot="icon-only" name="menu"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <!-- icon cart -->
+        <ion-buttons slot="end" routerLink="/carrito">
+            <ion-button>
+                <ion-icon slot="icon-only" name="cart"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <!-- submenu -->
+    <ion-segment scrollable mode="md" color="tertiary">
+        <ion-segment-button mode="md" *ngFor="let categoria of categorias" [value]="categoria">
+            <ion-label text-capitalize>{{ categoria }}</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+    <!-- Productos -->
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col *ngFor="let producto of productos; let i = index" size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+                <ion-item>
+
+                    <!-- Producto imagen -->
+                    <ion-thumbnail slot="start" style="height: 50px;" (click)="infoPage(producto)">
+                        <ion-img [src]="producto.img"></ion-img>
+                    </ion-thumbnail>
+
+                    <!-- Producto nombre -->
+                    <ion-label>{{ producto.name}} <br>
+                        <ion-chip outline color="warning">
+                            <ion-icon name="logo-usd"></ion-icon>
+                            <ion-label>{{ producto.precio }} soles</ion-label>
+                        </ion-chip> <br>
+                        <!-- Producto botones ver-->
+                        <ion-chip color="primary">
+                            <ion-label (click)="infoPage(producto)">Ver</ion-label>
+                        </ion-chip>
+                        <!-- Producto botones comprar-->
+                        <ion-chip outline [color]="producto.control">
+                            <ion-icon name="cart"></ion-icon>
+                            <ion-label>Comprar</ion-label>
+                        </ion-chip>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

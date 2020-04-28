@@ -8,9 +8,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RegisterComponent } from './pages/register/register.component';
+import { PanelComponent } from './pages/admin/panel/panel.component';
+import { InfoComponent } from './pages/admin/info/info.component';
+import { CarritoComponent } from './pages/admin/carrito/carrito.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, RegisterComponent, PanelComponent, InfoComponent, CarritoComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [

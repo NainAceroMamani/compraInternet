@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="tertiary">
+
+        <!-- back-button -->
+        <ion-buttons slot="start">
+            <ion-back-button text="Back" defaultHref="/">
+            </ion-back-button>
+        </ion-buttons>
+
+        <!-- title -->
+        <ion-title text-capitalize> Carrito </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <!-- Productos -->
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col *ngFor="let producto of productos; let i = index" size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+                <ion-item>
+
+                    <!-- Producto imagen -->
+                    <ion-thumbnail slot="start" style="height: 50px;">
+                        <ion-img [src]="producto.img"></ion-img>
+                    </ion-thumbnail>
+
+                    <!-- Producto nombre -->
+                    <ion-label>{{ producto.name}} <br>
+                        <ion-chip outline color="warning">
+                            <ion-icon name="logo-usd"></ion-icon>
+                            <ion-label>{{ producto.precio }} soles</ion-label>
+                        </ion-chip><br>
+
+                        <!-- Producto botones + -->
+                        <ion-chip outline color="danger">
+                            <ion-icon name="remove"></ion-icon>
+                        </ion-chip>
+
+                        <!-- Producto botones total -->
+                        1
+
+                        <!-- Producto botones - -->
+                        <ion-chip outline color="success">
+                            <ion-icon name="add-circle"></ion-icon>
+                        </ion-chip>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar color="light" mode="ios">
+
+        <!-- Producto precio -->
+        <ion-row>
+            <ion-col size="6">
+                <ion-button expand="full" shape="round" color="light">
+                    <ion-icon slot="start" name="logo-usd"></ion-icon> 1200 soles</ion-button>
+            </ion-col>
+            <ion-col size="6">
+                <ion-button expand="full" shape="round" color="success">
+                    <ion-icon slot="start" name="cart"></ion-icon> Iniciar </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

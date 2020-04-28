@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="tertiary">
+
+        <!-- back-button -->
+        <ion-buttons slot="start">
+            <ion-back-button text="Back" defaultHref="/">
+            </ion-back-button>
+        </ion-buttons>
+
+        <!-- title -->
+        <ion-title text-capitalize>{{ producto.name }}</ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-row>
+        <ion-col>
+            <ion-card>
+                <img [src]="producto.img" alt="">
+            </ion-card>
+        </ion-col>
+        <ion-col>
+            <ion-list>
+                <!-- Beneficios -->
+                <ion-item> Beneficios</ion-item>
+                <ion-item *ngFor="let beneficio of beneficios; let i = index" detail>
+                    <ion-avatar slot="start">
+                        <img src="/assets/img/productos/check.png">
+                    </ion-avatar>
+
+                    <!-- Información -->
+                    <ion-label>
+                        <h3>{{ beneficio.name }}</h3>
+                        <p>{{ beneficio.description }}</p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar color="light" mode="ios">
+
+        <!-- Producto precio -->
+        <ion-row>
+            <ion-col size="6">
+                <ion-button expand="full" shape="round" color="light">
+                    <ion-icon slot="start" name="logo-usd"></ion-icon> {{ producto.precio}} soles</ion-button>
+            </ion-col>
+            <ion-col size="6">
+                <ion-button expand="full" shape="round">
+                    <ion-icon slot="start" name="cart"></ion-icon> Comprar </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>
